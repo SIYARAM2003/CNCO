@@ -1,13 +1,76 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 830px) {
+  .headerCategory {
+    display: none;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (max-width: 1171px) {
+  .serachInputSection {
+    display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .headerCategory {
+    margin-right: 20rem;
+  }
+}
+@media (max-width: 320px) {
+  .logo {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 1171px) {
+  .headerCategory {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  .signImage {
+    display: none;
+  }
+}
+
+@media (max-width: 1140px) {
+  .logImage {
+    display: none;
+  }
+}
+
+@media (max-width: 1327px) {
+  .headerImage {
+    display: none;
+  }
+}
+@media (max-width: 830px) {
+  .headerImage1 {
+    display: none;
+  }
+}
+@media (max-width: 830px) {
+  .hamburgerButton {
+    display: block;
+  }
+}
+
+::-webkit-scrollbar {
+	margin-top: 4.1rem;
+	width: 12px;
+
+}
+::-webkit-scrollbar-track {
+	margin-top: 4.1rem;
+	width: 12px;
+
+}
+
+::-webkit-scrollbar-thumb {
+	background: #d5d6da;
+	width: 12px;
 }
