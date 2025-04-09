@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Login() {
+function Login({setIsLoggedIn}) {
   const navigate = useNavigate();
   const [input, setInput] = useState({
     email: "",
@@ -30,6 +30,7 @@ function Login() {
     if (matchedUser) {
       toast.success("Login successful!");
       localStorage.setItem("isLoggedIn", "true");
+	  setIsLoggedIn(true)
       setTimeout(() => navigate("/"), 1500);
     } else {
       localStorage.setItem("isLoggedIn", "false");

@@ -11,7 +11,7 @@ import AddToCart from './AddToCart'
 import ProtectedRoute from './ProtactRouter'
 import YourOrdres from './YourOrdres'
 
-function MainRoutes() {
+function MainRoutes({setIsLoggedIn}) {
   return (
     <div>
       <Routes>
@@ -33,7 +33,7 @@ function MainRoutes() {
 		 <Route path='/yourOrders' element={
           <ProtectedRoute> <YourOrdres /> </ProtectedRoute>
         } />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path='/forgotPassword' element={<ForgotPassword />} />
         <Route path='/signUp' element={<SignUp />} />
       </Routes>

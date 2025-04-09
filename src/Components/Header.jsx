@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import logo from "./Assets/Logo.png";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -6,20 +6,13 @@ import { BsCart2 } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function Header() {
+function Header({isLoggedIn,setIsLoggedIn}) {
   const [popup, setPopup] = useState(false);
   const [list, setList] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    setIsLoggedIn(!!user);
-  }, []);
-
-  console.log(isLoggedIn,"isLoggedIn");
   const handlePopup = () => {
     setPopup(!popup);
   };
