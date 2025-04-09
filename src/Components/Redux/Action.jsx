@@ -12,4 +12,10 @@ export const removeFromCart = (id) => {
   };
 };
 
+export const clearCart = () => {
+	return {
+	  type: "CLEAR_CART",
+	};
+  };
+  
 

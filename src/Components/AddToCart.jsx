@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import {clearCart } from "./Redux/Action";
 
 function AddToCart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -35,8 +36,18 @@ function AddToCart() {
   };
 
   const handlePlaceOrder = () => {
-    setStep(3);
+	const newOrder = {
+	  items: cartItems,
+	  address: address,
+	  orderDate: new Date().toLocaleString(),
+	};
+	const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+	const updatedOrders = [...existingOrders, newOrder];
+	localStorage.setItem("orders", JSON.stringify(updatedOrders));
+	dispatch(clearCart());
+	setStep(3);
   };
+  
   const navigate = useNavigate();
 
   const closeModal = () => {

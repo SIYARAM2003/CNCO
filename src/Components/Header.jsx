@@ -1,24 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./Assets/Logo.png";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
   const [popup, setPopup] = useState(false);
   const [list, setList] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
+  const navigate = useNavigate();
 
-  function handlePopup() {
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
+
+  console.log(isLoggedIn,"isLoggedIn");
+  const handlePopup = () => {
     setPopup(!popup);
-  }
-  function handleList() {
+  };
+
+  const handleList = () => {
     setList(!list);
-  }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+	localStorage.removeItem("orders");
+    localStorage.setItem("isLoggedIn", "false");
+    setIsLoggedIn(false);
+    setPopup(false);
+    navigate("/login");
+  };
+
   return (
     <div className="sticky top-0 z-50">
       <div className="flex justify-between items-center bg-slate-100 shadow-md px-5 w-full relative">
@@ -39,8 +57,10 @@ function Header() {
               <BsCart2
                 size={25}
                 className="fill-[#375280] cursor-pointer hover:fill-green-500"
-				/>
-				<span className="absolute top-2 ml-4 bg-fuchsia-500 rounded-full text-white w-[18px] h-[18px] flex items-center justify-center text-xs">{totalQty}</span>
+              />
+              <span className="absolute top-2 ml-4 bg-fuchsia-500 rounded-full text-white w-[18px] h-[18px] flex items-center justify-center text-xs">
+                {totalQty}
+              </span>
             </Link>
           </div>
           <span>
@@ -50,19 +70,47 @@ function Header() {
               onClick={handlePopup}
             />
           </span>
-          <div className="absolute top-[4.2rem] right-3">
-            {popup && (
-              <div className="bg-slate-100 flex flex-col shadow-lg">
-                <Link onClick={handlePopup} className="h-[3rem] w-[6rem] flex justify-center items-center text-slate-700 hover:bg-green-500 hover:text-white" to="/login">
-                  Login
-                </Link>
-                <hr />
-                <Link onClick={handlePopup} className="h-[3rem] w-[6rem] flex justify-center items-center text-slate-700 hover:bg-yellow-400 hover:text-white" to="/signUp">
-                  SignUp
-                </Link>
-              </div>
-            )}
-          </div>
+          {popup && (
+            <div className="absolute top-[4.2rem] right-3 bg-slate-100 flex flex-col shadow-lg">
+              {isLoggedIn ?(
+				<> 
+                <button
+                  onClick={handleLogout}
+                  className="h-[3rem] w-[7rem] hover:bg-slate-200 hover:text-fuchsia-500 text-center text-[17px]"
+                >
+                  Logout
+                </button>
+				<Link
+ 					 to="/yourOrders"
+ 					 onClick={() => setPopup(false)}
+ 					 className="h-[3rem] w-[7rem] hover:bg-slate-200 hover:text-fuchsia-500 text-center text-[17px] pt-2"
+					>
+					  Your Orders
+				</Link>
+
+			  </>
+              ) : (
+                <>
+                  <Link
+                    onClick={handlePopup}
+                    to="/login"
+                    className="h-[3rem] w-[6rem] flex justify-center items-center text-slate-700 hover:bg-green-500 hover:text-white"
+                  >
+                    Login
+                  </Link>
+                  <hr />
+                  <Link
+                    onClick={handlePopup}
+                    to="/signUp"
+                    className="h-[3rem] w-[6rem] flex justify-center items-center text-slate-700 hover:bg-yellow-400 hover:text-white"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
+
           <span className="hidden hamburgerButton">
             <RxHamburgerMenu
               size={25}

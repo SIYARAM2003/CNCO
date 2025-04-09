@@ -3,7 +3,6 @@ import signimage from "./Assets/signimg.jpg";
 import logo from "./Assets/Logo.png";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 
 function SignUp({ handleLogin }) {
   const navigate = useNavigate();
@@ -22,19 +21,24 @@ function SignUp({ handleLogin }) {
     const { name, value } = e.target;
     setInput((prevInput) => ({...prevInput, [name]: value,}));
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(input));
-    toast.success("Registered Successfully!", {
-      position: "top-right",
-      autoClose: 2000,
-    });
-    setTimeout(() => navigate("/login"), 2000); 
-  }
+
+const handleSubmit = (e)=>{
+	e.preventDefault();
+	const saveData = JSON.parse(localStorage.getItem("user")) ||[]
+	const userData = [...saveData,input]
+	localStorage.setItem("user",JSON.stringify(userData))
+	setInput({
+		firstname: "",
+		lastname: "",
+		email: "",
+		password: "",
+	})
+	setTimeout(() => navigate("/login"),[100]);
+
+}
 
   return (
     <div className="bg-white w-full h-[93vh] flex justify-center items-center">
-      <ToastContainer />
       <form onSubmit={handleSubmit} className="w-[80vw] h-[84vh] flex justify-center items-center">
         <div className="flex justify-between">
           <div className="flex flex-col items-center justify-center lg:w-[35rem] md:w-[20rem] sm:w-[14rem] h-[48rem] gap-5">

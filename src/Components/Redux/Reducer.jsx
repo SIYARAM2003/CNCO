@@ -26,6 +26,13 @@ const initialState = {
 		  ...state,
 		  cartItems: state.cartItems.filter((x) => x.id !== action.payload),
 		};
+
+	case "CLEAR_CART":
+  	   return {
+   	   ...state,
+   	   cartItems: [],
+  		};
+
   
 	  default:
 		return state;
