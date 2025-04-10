@@ -104,7 +104,8 @@ const handleSubmit = (e)=>{
                 I agree to the <span className="text-[#375280]">Terms & Conditions</span> and <span className="text-[#375280]">Privacy Statement.</span>
               </label>
             </div>
-            <button type="submit" className="bg-fuchsia-500 hover:bg-fuchsia-600 h-[3rem] lg:w-[30rem] md:w-[25rem] sm:w-[18rem] flex items-center justify-center text-[21px] text-white cursor-pointer mt-5">
+            <button type="submit" 
+			className="bg-fuchsia-500 hover:bg-fuchsia-600 h-[3rem] w-full lg:w-[30rem] md:w-[25rem] items-center justify-center text-[21px] text-white cursor-pointer mt-5">
               Sign Up
             </button>
             <div>

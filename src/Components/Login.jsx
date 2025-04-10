@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Login({setIsLoggedIn}) {
+function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
   const [input, setInput] = useState({
     email: "",
@@ -30,8 +30,8 @@ function Login({setIsLoggedIn}) {
     if (matchedUser) {
       toast.success("Login successful!");
       localStorage.setItem("isLoggedIn", "true");
-	  setIsLoggedIn(true)
-      setTimeout(() => navigate("/"), 1500);
+      setIsLoggedIn(true);
+      setTimeout(() => navigate("/"), 1000);
     } else {
       localStorage.setItem("isLoggedIn", "false");
       toast.error("Invalid email or password!");
@@ -89,7 +89,7 @@ function Login({setIsLoggedIn}) {
             </div>
             <button
               type="submit"
-              className="bg-fuchsia-500 h-[3rem] hover:bg-fuchsia-600 lg:w-[30rem] md:w-[25rem] sm:w-[18rem] flex items-center justify-center text-[21px] text-white cursor-pointer"
+              className="bg-fuchsia-500 h-[3rem] w-full lg:w-[30rem] md:w-[25rem] hover:bg-fuchsia-600 flex items-center justify-center text-[21px] text-white cursor-pointer"
             >
               Login
             </button>

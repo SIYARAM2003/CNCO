@@ -3,32 +3,32 @@
     "Men": [
       {
         "id": 1,
-        "name": "DHRUVI TRENDZ Men Pajama Set Mens",
-        "price": "₹399",
-        "image_src": "https://m.media-amazon.com/images/I/61k-h8Q2C1L._SX679_.jpg"
+        "name": "LookMark Men's Cotton Blend Printed Stitched Half Shirt Mens",
+        "price": 319,
+        "image_src": "https://m.media-amazon.com/images/I/611jz3yi-2L._SX569_.jpg"
       },
       {
         "id": 2,
-        "name": "LookMark Men's Cotton Blend Printed Stitched Half Shirt Mens",
-        "price": "₹319",
-        "image_src": "https://m.media-amazon.com/images/I/611jz3yi-2L._SX569_.jpg"
+        "name": "DHRUVI TRENDZ Men Pajama Set Mens",
+        "price": 399,
+        "image_src": "https://m.media-amazon.com/images/I/61k-h8Q2C1L._SX679_.jpg"
       },
       {
         "id": 3,
         "name": "Leriya Fashion Shirt for Mens",
-        "price": "₹250",
+        "price": 250,
         "image_src": "https://m.media-amazon.com/images/I/712HMJxTDNL._SY741_.jpg"
       },
       {
         "id": 4,
         "name": "TAGDO Men's Regular Fit Casual Shirt Mens",
-        "price": "₹480",
+        "price": 480,
         "image_src": "https://m.media-amazon.com/images/I/61rn0mvyumL._SY741_.jpg"
       },
       {
         "id": 5,
         "name": "Leriya Fashion for Casual Stylish Printed Mens",
-        "price": "₹479",
+        "price": 479,
         "image_src": "https://m.media-amazon.com/images/I/71vwXrkMkzL._SY741_.jpg"
       }
     ],
@@ -36,31 +36,31 @@
       {
         "id": 1,
         "name": "Be Bold Inside & Elegant Outside Baby's Cotton Tshirt Pant Set Kids",
-        "price": "₹500",
+        "price": 500,
         "image_src": "https://m.media-amazon.com/images/I/51nUfiMuCLL._SX679_.jpg"
       },
       {
         "id": 2,
         "name": "Boy's Cotton Full Sleeves Printed Sweatshirt Kids",
-        "price": "₹400",
+        "price": 400,
         "image_src": "https://m.media-amazon.com/images/I/517+8nArL8L._SX679_.jpg"
       },
       {
         "id": 3,
         "name": "Kids Boys Printed Cotton Short Sleeve Kids",
-        "price": "₹400",
+        "price": 400,
         "image_src": "https://m.media-amazon.com/images/I/61NhA3gj0oL._SX679_.jpg"
       },
       {
         "id": 4,
         "name": "Hopscotch Cotton Blend Boys Plaid Print Shirt And Pant Set Kids",
-        "price": "₹480",
+        "price": 480,
         "image_src": "https://m.media-amazon.com/images/I/51YWnDMMY1L._SX679_.jpg"
       },
       {
         "id": 5,
         "name": "Googo Gaaga Boys Cotton Track Suit Kids",
-        "price": "₹479",
+        "price": 479,
         "image_src": "https://m.media-amazon.com/images/I/518Xd9hgamL._SX679_.jpg"
       }
     ],
@@ -68,31 +68,31 @@
       {
         "id": 1,
         "name": "Leriya Fashion Women's Short Sleeve Button-Down Shirt Women",
-        "price": "₹399",
+        "price": 399,
         "image_src": "https://m.media-amazon.com/images/I/719Fun5OPUL._SY741_.jpg"
       },
       {
         "id": 2,
         "name": "GRECIILOOKS Shirt for Women Stylish Women",
-        "price": "₹319",
+        "price": 319,
         "image_src": "https://m.media-amazon.com/images/I/71f3SP2zNKL._SY741_.jpg"
       },
       {
         "id": 3,
         "name": "VIMAL JONNEY Women Striped T-Shirt Women",
-        "price": "₹299",
+        "price": 299,
         "image_src": "https://m.media-amazon.com/images/I/71FrIYHnJdL._SY741_.jpg"
       },
       {
         "id": 4,
         "name": "TAGDO Men's Regular Fit Casual Shirt Women",
-        "price": "₹480",
+        "price": 480,
         "image_src": "https://m.media-amazon.com/images/I/518FYF0hTLL._SY741_.jpg"
       },
       {
         "id": 5,
         "name": "TOPLOT Heart Printed Round Neck Crop Top for Women ",
-        "price": "₹399",
+        "price": 399,
         "image_src": "https://m.media-amazon.com/images/I/51csdsw1I6L._SX679_.jpg"
       }
     ],
@@ -100,31 +100,31 @@
       {
         "id": 1,
         "name": "U.S. POLO ASSN. Men's Sneaker Shoes",
-        "price": "₹2,079",
+        "price": 2079,
         "image_src": "https://m.media-amazon.com/images/I/61awmNZzsxL._SY695_.jpg"
       },
       {
         "id": 2,
         "name": "U.S. POLO ASSN. Men's Canvas Sneaker Shoes",
-        "price": "₹1,649",
+        "price": 1649,
         "image_src": "https://m.media-amazon.com/images/I/71zA5hwLhVL._SY695_.jpg"
       },
       {
         "id": 3,
         "name": "U.S. POLO ASSN. Men Rowan Sneaker Shoes",
-        "price": "₹2.899",
+        "price": 2899,
         "image_src": "https://m.media-amazon.com/images/I/71i6IlJ9lhL._SY695_.jpg"
       },
       {
         "id": 4,
         "name": "U.S. Polo Assn. Men JOAS 2.0 Sneakers Shoes",
-        "price": "₹2,499",
+        "price": 2499,
         "image_src": "https://m.media-amazon.com/images/I/61q-xPCBSvL._SY695_.jpg"
       },
       {
         "id": 5,
         "name": "U.S. Polo Assn. Men JOAS 2.0 Sneakers Shoes",
-        "price": "₹1,499",
+        "price": 1499,
         "image_src": "https://m.media-amazon.com/images/I/71TCP-Tq2VL._SY695_.jpg"
       }
     ],
@@ -132,31 +132,31 @@
       {
         "id": 1,
         "name": "Carlington Resin Endurance Sports Watch for Men Watch",
-        "price": "₹1,299",
+        "price": 1299,
         "image_src": "https://m.media-amazon.com/images/I/81ocGlHItTL._SX679_.jpg"
       },
       {
         "id": 2,
         "name": "V2A Chronograph Analogue and Digital Sports Watch",
-        "price": "₹890",
+        "price": 890,
         "image_src": "https://m.media-amazon.com/images/I/71hGwEE5f3L._SX569_.jpg"
       },
       {
         "id": 3,
         "name": "Fastrack Mean Machines Guys Ana Digi Watch",
-        "price": "₹3,899",
+        "price": 3899,
         "image_src": "https://m.media-amazon.com/images/I/71hGehKqLBL._SY741_.jpg"
       },
       {
         "id": 4,
         "name": "Casio Youth Digital Analog-Digital Black Dial Men's Watch",
-        "price": "₹3,995",
+        "price": 3995,
         "image_src": "https://m.media-amazon.com/images/I/61aQ9XqwgzL._SX679_.jpg"
       },
       {
         "id": 5,
         "name": "Fastrack Fundamentals Quartz Analog Blue Strap Watch",
-        "price": "₹3,995",
+        "price": 3995,
         "image_src": "https://m.media-amazon.com/images/I/51rkfCCjh0L._SX679_.jpg"
       }
     ]

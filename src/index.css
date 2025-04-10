@@ -59,6 +59,12 @@
   }
 }
 
+@media (max-width: 320px) {
+	.phoneImg {
+		display: block;
+	}
+}
+
 ::-webkit-scrollbar {
 	margin-top: 4.1rem;
 	width: 12px;

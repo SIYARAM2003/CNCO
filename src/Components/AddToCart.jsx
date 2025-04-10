@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "./Redux/Action";
+import { decreaseQty, increaseQty } from "./Redux/Action";
 import emptyCart from "./Assets/emptycart.avif";
 import { Link } from "react-router-dom";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import {clearCart } from "./Redux/Action";
+import { clearCart } from "./Redux/Action";
 
 function AddToCart() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
   const [step, setStep] = useState(1);
+
   const [address, setAddress] = useState({
     First_Name: "",
     Last_Name: "",
@@ -36,18 +37,18 @@ function AddToCart() {
   };
 
   const handlePlaceOrder = () => {
-	const newOrder = {
-	  items: cartItems,
-	  address: address,
-	  orderDate: new Date().toLocaleString(),
-	};
-	const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
-	const updatedOrders = [...existingOrders, newOrder];
-	localStorage.setItem("orders", JSON.stringify(updatedOrders));
-	dispatch(clearCart());
-	setStep(3);
+    const newOrder = {
+      items: cartItems,
+      address: address,
+      orderDate: new Date().toLocaleString(),
+    };
+    const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    const updatedOrders = [...existingOrders, newOrder];
+    localStorage.setItem("orders", JSON.stringify(updatedOrders));
+    dispatch(clearCart());
+    setStep(3);
   };
-  
+
   const navigate = useNavigate();
 
   const closeModal = () => {
@@ -78,9 +79,9 @@ function AddToCart() {
       <div className="text-2xl font-semibold font-[Poppins] mb-4 bg-fuchsia-600 h-[3rem] text-[#e1e2e4] flex items-center px-4">
         Your Cart
       </div>
-      {cartItems.map((item, i) => (
+      {cartItems.map((item, id) => (
         <div
-          key={i}
+          key={id}
           className="flex items-center justify-between border-b py-3 px-3"
         >
           <div className="flex gap-4 items-center">
@@ -88,21 +89,40 @@ function AddToCart() {
             <div>
               <h4 className="font-[Lato] text-[17px]">{item.name}</h4>
               <p className="text-[#2f4c7c] font-mono text-[17px]">
-                {item.price}
+                ₹
+                {parseFloat(item.price.toString().replace(/[^\d.]/g, "")) *
+                  item.qty}
               </p>
               <p className="text-slate-500">Qty: {item.qty}</p>
             </div>
           </div>
-          <button
-            className="hover:bg-slate-200 bg-slate-100 rounded-full p-1.5 w-[7rem] hover:text-fuchsia-500 text-center text-[17px]"
-            onClick={() => dispatch(removeFromCart(item.id))}
-          >
-            Remove
-          </button>
+          <div className="flex items-center gap-2 hover:bg-slate-200 bg-slate-100 rounded-full p-1.5 w-[8rem] justify-center text-center text-[17px]">
+            <button
+              className="px-2  hover:text-green-500 text-2xl"
+              onClick={() => dispatch(decreaseQty(item.id))}
+            >
+              -
+            </button>
+            <span className="px-2 text-gray-500">{item.qty}</span>
+            <button
+              className="px-2  hover:text-green-500"
+              onClick={() => dispatch(increaseQty(item.id))}
+            >
+              +
+            </button>
+          </div>
         </div>
       ))}
-
-      <div className="mt-[39rem] ml-[82vw] fixed bottom-4">
+      <div className="text-right font-semibold text-lg text-fuchsia-600 border-t pt-2 pr-5">
+        Total: ₹
+        {cartItems.reduce((total, item) => {
+          const price = parseFloat(
+            item.price.toString().replace(/[^\d.]/g, "")
+          );
+          return total + price * item.qty;
+        }, 0)}
+      </div>
+      <div className="flex justify-end mt-[10rem] lg:mr-3 md:mr-3 sm:mr-3">
         <div
           className="bg-fuchsia-600 hover:bg-fuchsia-700 cursor-pointer text-white rounded-md w-[20rem] h-[3rem] flex justify-center items-center font-semibold"
           onClick={() => setShowPopup(true)}
@@ -120,24 +140,22 @@ function AddToCart() {
                   Delivery Details
                 </h2>
                 <div>
-                  <div className="flex justify-between flex-wrap">
-                    <input
-                      type="text"
-                      name="First_Name"
-                      placeholder="Fisrt Name"
-                      value={address.First_Name}
-                      onChange={handleChange}
-                      className="border p-2 mb-3 w-[13rem] rounded outline-none bg-slate-100"
-                    />
-                    <input
-                      type="text"
-                      name="Last_Name"
-                      placeholder="Full Name"
-                      value={address.Last_Name}
-                      onChange={handleChange}
-                      className="border p-2 mb-3 w-[13rem] rounded outline-none bg-slate-100"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name="First_Name"
+                    placeholder="Fisrt Name"
+                    value={address.First_Name}
+                    onChange={handleChange}
+                    className="border p-2 mb-3 w-full rounded outline-none bg-slate-100"
+                  />
+                  <input
+                    type="text"
+                    name="Last_Name"
+                    placeholder="Full Name"
+                    value={address.Last_Name}
+                    onChange={handleChange}
+                    className="border p-2 mb-3 w-full rounded outline-none bg-slate-100"
+                  />
                   <input
                     type="text"
                     name="email"
@@ -180,27 +198,30 @@ function AddToCart() {
                     className="border p-2 mb-4 w-full rounded outline-none bg-slate-100"
                   />
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-evenly items-center mt-6 w-full">
                   <button
-                    className="hover:text-fuchsia-500 text-gray-400 absolute top-[15rem] ml-[27.3rem] hover:rounded-full"
+                    className="bg-fuchsia-600 rounded-full w-[8rem] text-white px-6 py-1 hover:bg-fuchsia-700 flex items-center justify-around"
                     onClick={closeModal}
                   >
-                    ✕
+					<BsArrowLeftShort
+                      size={25}
+                      className="text-white  rounded-full w-6 h-6 hover:scale-105 "
+					  />
+					  Back
                   </button>
+
                   <button
-                    className="bg-fuchsia-500 rounded-full text-white w-[10rem] ml-[8rem] mt-6 px-4 py-2 hover:bg-fuchsia-600 flex items-center"
+                    className="bg-fuchsia-600 gap-2 w-[8rem] rounded-full text-white px-6 py-1 hover:bg-fuchsia-700 flex items-center justify-around relative"
                     onClick={handleNext}
                   >
+					  Next
                     <BsArrowRightShort
                       size={25}
-                      className="text-fuchsia-600 bg-white rounded-full w-[2rem] h-[2rem] hover:scale-105 absolute ml-[6.6rem]"
+                      className="text-white  rounded-full w-6 h-6 hover:scale-105 "
                     />
-                    Next
                   </button>
-                  <ToastContainer
-                    position="top-right top-[7.3rem]"
-                    autoClose={1000}
-                  />
+
+                  <ToastContainer position="top-right" autoClose={1000} />
                 </div>
               </>
             )}
@@ -254,7 +275,7 @@ function AddToCart() {
                     Back
                   </button>
                   <button
-                    className="bg-fuchsia-500 text-white px-4 py-2 w-[8rem] rounded-full  hover:bg-green-500"
+                    className="bg-fuchsia-500 text-white px-4 py-2 w-[8rem] rounded-full hover:bg-green-500"
                     onClick={handlePlaceOrder}
                   >
                     Place Order

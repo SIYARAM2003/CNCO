@@ -29,7 +29,7 @@ function YourOrders() {
               {order.items.map((item, i) => (
                 <div key={i} className="flex justify-between">
                   <span>{item.name} (x{item.qty})</span>
-                  <span>Price : {item.price}</span>
+                  <span>Price : {item.price * item.qty}</span>
                 </div>
               ))}
             </div>

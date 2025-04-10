@@ -4,7 +4,20 @@ export const addToCart = (product) => {
     payload: product,
   };
 };
-
+export const increaseQty = (id) => {
+	return {
+	  type: "INCREASE_QTY",
+	  payload: id,
+	};
+  };
+  
+  export const decreaseQty = (id) => {
+	return {
+	  type: "DECREASE_QTY",
+	  payload: id,
+	};
+  };
+  
 export const removeFromCart = (id) => {
   return {
     type: "REMOVE_FROM_CART",
@@ -18,4 +31,5 @@ export const clearCart = () => {
 	};
   };
   
+ 
 

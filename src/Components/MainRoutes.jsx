@@ -16,7 +16,7 @@ function MainRoutes({setIsLoggedIn}) {
     <div>
       <Routes>
         <Route path='/' element={
-          <ProtectedRoute> <Home /> </ProtectedRoute>
+           <Home />
         } />
         <Route path='/kids' element={
           <ProtectedRoute> <Kids /> </ProtectedRoute>

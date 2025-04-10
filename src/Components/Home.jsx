@@ -4,21 +4,29 @@ import Products from "./JsonData/Products.json";
 import { MdStar, MdStarBorder } from "react-icons/md";
 import headerImg from "./Assets/headerimage.jpg";
 import headerImg2 from "./Assets/headreimage2.jpg";
+import phoneImage from "./Assets/phone04.jpg"
 import { BsArrowLeftShort } from "react-icons/bs";
 import productNotFound from "./Assets/product-not-found.png";
-import { useDispatch } from 'react-redux';
-import { addToCart } from './Redux/Action'; 
+import { useDispatch } from "react-redux";
+import { addToCart } from "./Redux/Action";
 
 function Home() {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
-const handleCart = (item) => {
-  dispatch(addToCart(item));
-};
+  const handleCart = (item) => {
+    const isLog = localStorage.getItem("isLoggedIn");
+
+    if (isLog !== "true") {
+      window.location.href = "/login";
+      return;
+    }
+
+    dispatch(addToCart(item));
+  };
   const [ratings, setRatings] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const handleStar = (id, rating) => {
-    setRatings((prev) => ({...prev, [id]: rating,}));
+    setRatings((prev) => ({ ...prev, [id]: rating }));
   };
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
@@ -49,12 +57,17 @@ const handleCart = (item) => {
           </div>
         </div>
       </div>
-   		 {!searchTerm && (
-		  <div className="flex gap-3 justify-center mb-5">
-		  <img src={headerImg} alt="" className="w-[71vw] headerImage1" />
-		  <img src={headerImg2} alt="" className="w-[23vw] object-cover headerImage"/>
-		</div>
-		)}
+      {!searchTerm && (
+        <div className="flex gap-3 justify-center mb-5">
+		  <img src={phoneImage} alt="" className="phoneImg hidden"/>
+          <img src={headerImg} alt="" className="w-[71vw] headerImage1" />
+          <img
+            src={headerImg2}
+            alt=""
+            className="w-[23vw] object-cover headerImage"
+          />
+        </div>
+      )}
       <div className="flex flex-wrap justify-evenly bg-slate-50 gap-4">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((item, i) => (
@@ -97,7 +110,11 @@ const handleCart = (item) => {
         ) : (
           <div className="text-center text-gray-600 w-full text-xl mt-[9.8rem] mb-[8rem]">
             <div className="flex justify-center items-center">
-              <img src={productNotFound} alt="" className=" flex justify-center w-[35rem]"/>
+              <img
+                src={productNotFound}
+                alt=""
+                className=" flex justify-center w-[35rem]"
+              />
             </div>
           </div>
         )}
