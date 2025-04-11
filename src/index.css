@@ -115,6 +115,11 @@
     width: 16.5rem;
   }
 }
+@media (max-width: 430px) {
+  .loginButton {
+    width: 16rem;
+  }
+}
 @media (max-width: 375px) {
   .signupButton {
     width: 16rem;
@@ -125,6 +130,11 @@
     width: 16.5rem;
   }
 }
+@media (max-width: 430px) {
+  .signupButton {
+    width: 16rem;
+  }
+}
 @media (max-width: 375px) {
   .forgetpasswordButton {
     width: 16rem;
@@ -133,6 +143,11 @@
 @media (max-width: 425px) {
   .forgetpasswordButton {
     width: 16.5rem;
+  }
+}
+@media (max-width: 430px) {
+  .forgetpasswordButton {
+    width: 16rem;
   }
 }
 
