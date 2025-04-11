@@ -26,7 +26,7 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
 
   const handleLogout = () => {
 	dispatch(clearCart());
-    localStorage.removeItem("user");
+    // localStorage.removeItem("user");
     localStorage.removeItem("orders");
     localStorage.removeItem("cartItems");
     localStorage.removeItem("isLoggedIn");

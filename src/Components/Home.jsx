@@ -5,6 +5,7 @@ import { MdStar, MdStarBorder } from "react-icons/md";
 import headerImg from "./Assets/headerimage.jpg";
 import headerImg2 from "./Assets/headreimage2.jpg";
 import phoneImage from "./Assets/phone04.jpg"
+import phoneImage2 from "./Assets/phone05.avif"
 import { BsArrowLeftShort } from "react-icons/bs";
 import productNotFound from "./Assets/product-not-found.png";
 import { useDispatch } from "react-redux";
@@ -60,12 +61,9 @@ function Home() {
       {!searchTerm && (
         <div className="flex gap-3 justify-center mb-5">
 		  <img src={phoneImage} alt="" className="phoneImg hidden"/>
+		  <img src={phoneImage2} alt="" className="phoneImg2 hidden w-[500px]"/>
           <img src={headerImg} alt="" className="w-[71vw] headerImage1" />
-          <img
-            src={headerImg2}
-            alt=""
-            className="w-[23vw] object-cover headerImage"
-          />
+          <img src={headerImg2} alt="" className="w-[23vw] object-cover headerImage" />
         </div>
       )}
       <div className="flex flex-wrap justify-evenly bg-slate-50 gap-4">

@@ -89,7 +89,7 @@ function Login({ setIsLoggedIn }) {
             </div>
             <button
               type="submit"
-              className="bg-fuchsia-500 h-[3rem] w-full lg:w-[30rem] md:w-[25rem] hover:bg-fuchsia-600 flex items-center justify-center text-[21px] text-white cursor-pointer"
+              className="loginButton bg-fuchsia-500 h-[3rem] w-full lg:w-[30rem] md:w-[25rem] hover:bg-fuchsia-600 flex items-center justify-center text-[21px] text-white cursor-pointer"
             >
               Login
             </button>

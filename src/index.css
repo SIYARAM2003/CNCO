@@ -60,34 +60,80 @@
 }
 
 @media (max-width: 320px) {
-	.phoneImg {
-		display: block;
-	}
+  .phoneImg {
+    display: block;
+  }
 }
 @media (max-width: 375px) {
-	.phoneImg {
-		display: block;
-	}
+  .phoneImg {
+    display: block;
+  }
 }
 @media (max-width: 650px) {
-	.phoneImg {
-		display: block;
-		width: 20rem;
-	}
+  .phoneImg {
+    display: block;
+    width: 20rem;
+  }
+}
+@media (max-width: 768px) {
+  .phoneImg2 {
+    display: block;
+    width: 20rem;
+  }
+}
+@media (max-width: 425px) {
+  .phoneImg2 {
+    display: none;
+    width: 20rem;
+  }
+}
+.phoneImg2 {
+  width: 43rem;
+  height: 21rem;
+  object-fit: cover;
+}
+
+@media (max-width: 375px) {
+  .loginButton {
+    width: 16rem;
+  }
+}
+@media (max-width: 425px) {
+  .loginButton {
+    width: 16.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .signupButton {
+    width: 16rem;
+  }
+}
+@media (max-width: 425px) {
+  .signupButton {
+    width: 16.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .forgetpasswordButton {
+    width: 16rem;
+  }
+}
+@media (max-width: 425px) {
+  .forgetpasswordButton {
+    width: 16.5rem;
+  }
 }
 
 ::-webkit-scrollbar {
-	margin-top: 4.1rem;
-	width: 12px;
-
+  margin-top: 4.1rem;
+  width: 12px;
 }
 ::-webkit-scrollbar-track {
-	margin-top: 4.1rem;
-	width: 12px;
-
+  margin-top: 4.1rem;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #d5d6da;
-	width: 12px;
+  background: #d5d6da;
+  width: 12px;
 }

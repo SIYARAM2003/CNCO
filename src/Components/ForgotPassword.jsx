@@ -37,7 +37,7 @@ function ForgotPassword() {
 
             <button
               type="submit"
-              className="bg-fuchsia-500 h-[3rem] hover:bg-fuchsia-600 w-full lg:w-[30rem] md:w-[25rem] flex items-center justify-center text-[21px] text-white cursor-pointer"
+              className="forgetpasswordButton bg-fuchsia-500 h-[3rem] hover:bg-fuchsia-600 w-full lg:w-[30rem] md:w-[25rem] flex items-center justify-center text-[21px] text-white cursor-pointer"
             >
               Reset Password
             </button>

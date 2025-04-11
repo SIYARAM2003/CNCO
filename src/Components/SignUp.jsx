@@ -105,7 +105,7 @@ const handleSubmit = (e)=>{
               </label>
             </div>
             <button type="submit" 
-			className="bg-fuchsia-500 hover:bg-fuchsia-600 h-[3rem] w-full lg:w-[30rem] md:w-[25rem] items-center justify-center text-[21px] text-white cursor-pointer mt-5">
+			className="signupButton bg-fuchsia-500 hover:bg-fuchsia-600 h-[3rem] w-full lg:w-[30rem] md:w-[25rem] items-center justify-center text-[21px] text-white cursor-pointer mt-5">
               Sign Up
             </button>
             <div>
