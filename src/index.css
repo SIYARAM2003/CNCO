@@ -69,15 +69,27 @@
     display: block;
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 648px) {
   .phoneImg {
     display: block;
     width: 20rem;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 830px) {
   .phoneImg2 {
     display: block;
+    width: 20rem;
+  }
+}
+@media (max-width: 655px) {
+  .phoneImg2 {
+    display: none;
+    width: 20rem;
+  }
+}
+@media (max-width: 421px) {
+  .phoneImg2 {
+    display: none;
     width: 20rem;
   }
 }
