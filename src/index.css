@@ -64,6 +64,17 @@
 		display: block;
 	}
 }
+@media (max-width: 375px) {
+	.phoneImg {
+		display: block;
+	}
+}
+@media (max-width: 425px) {
+	.phoneImg {
+		display: block;
+		width: 20rem;
+	}
+}
 
 ::-webkit-scrollbar {
 	margin-top: 4.1rem;
