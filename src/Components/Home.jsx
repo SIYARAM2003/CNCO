@@ -46,7 +46,7 @@ function Home() {
               onChange={handleSearchInput}
               className="px-4 py-2 w-[17rem] rounded-full text-gray-700 border border-purple-200 outline-none"
             />
-            <span className="bg-fuchsia-500 h-[2.6rem] text-white rounded-full w-[8rem] absolute right-[1px] p-2 text-center ">
+            <span className="bg-[#32548f] h-[2.6rem] text-white rounded-full w-[8rem] absolute right-[1px] p-2 text-center ">
               Search
               <span className="text-white relative right-[7rem]">
                 <span className="absolute  ml-8">
